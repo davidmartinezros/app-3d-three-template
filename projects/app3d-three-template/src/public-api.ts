@@ -1,0 +1,7 @@
+/*
+ * Public API Surface of app3d-three-template
+ */
+
+export * from './lib/app3d-three-template.service';
+export * from './lib/app3d-three-template.component';
+export * from './lib/app3d-three-template.module';
