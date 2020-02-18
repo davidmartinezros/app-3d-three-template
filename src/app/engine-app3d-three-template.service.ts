@@ -4,7 +4,7 @@ import { Injectable, ElementRef, OnDestroy, NgZone } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class EngineApp3dThreeTemplateService implements OnDestroy {
+export abstract class EngineApp3dThreeTemplateService implements OnDestroy {
 
   protected canvas: HTMLCanvasElement;
   protected renderer: THREE.WebGLRenderer;
@@ -49,21 +49,23 @@ export class EngineApp3dThreeTemplateService implements OnDestroy {
   }
   
   //implement for create objects in scene
-  createObjects(): void {
-    //this.axesHelper = new THREE.AxesHelper( 200 );
-    //this.scene.add( this.axesHelper );
+  abstract createObjects();
+  //{
+  //this.axesHelper = new THREE.AxesHelper( 200 );
+  //this.scene.add( this.axesHelper );
 
-    //this.camera.lookAt(0,0,0);
-  }
+  //this.camera.lookAt(0,0,0);
+  //}
 
   //implement for render animation of objects
-  renderObjects() {
-    //this.axesHelper.rotateX(0.01);
-    //this.axesHelper.rotateY(0.001);
-    //this.axesHelper.rotateZ(0.005);
+  abstract renderObjects();
+  //{
+  //this.axesHelper.rotateX(0.01);
+  //this.axesHelper.rotateY(0.001);
+  //this.axesHelper.rotateZ(0.005);
 
-    //this.camera.lookAt(this.axesHelper.position);
-  }
+  //this.camera.lookAt(this.axesHelper.position);
+  //}
 
   render() {
     this.frameId = requestAnimationFrame(() => {
