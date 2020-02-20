@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Injectable } from '@angular/core';
-import { EngineApp3dThreeTemplateService } from './engine-app3d-three-template.service';
+import { EngineApp3dThreeTemplateService } from './app3d-three-template.service';
 
 @Injectable({
   providedIn: 'root'

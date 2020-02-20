@@ -6,6 +6,34 @@ The project is setup to use global [SCSS](https://sass-lang.com/) only and [View
 
 You can find me at https://davidmartinezros.com or contact in the email davidnezan@gmail.com
 
+## how to do to create a three.js project
+
+You have to import the three.js library to your project.
+
+```
+npm i three --save
+```
+
+Add the three.js file to your project in the angular.json file.
+
+```
+"scripts": [
+  "node_modules/three/build/three.min.js"
+],
+```
+
+And add the webgl2 type to your tsconfig.app.json file or to tsconfig.json file.
+
+```
+"compilerOptions": {
+  "outDir": "../out-tsc/app",
+  "types": [
+    "node",
+    "webgl2"
+  ]
+},
+```
+
 # how to use
 
 You can use it as a component in your project adding the <app-3d-three-template></app-3d-three-template> tag where you want and add the component App3dThreeTemplateComponent and the provider EngineApp3dThreeTemplateService to the module.
@@ -15,75 +43,77 @@ Like this:
 ```
 @NgModule({
   declarations: [
-    App3dThreeTemplateComponent
+    MyComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [
-    EngineApp3dThreeTemplateService
+    MyService
   ],
   bootstrap: [
-    App3dThreeTemplateComponent
+    MyComponent
   ]
 })
 export class AppModule { }
-´´´
+```
 
 Then, you can reimplemented extending the service EngineApp3dThreeTemplateService and implementing the methods createObjects() and renderObjects().
 
 Like this:
 
 ```
-export class YourService extends EngineApp3dThreeTemplateService {
+export class MyService extends EngineApp3dThreeTemplateService {
 
-...
+  ...
 
-//implement for create objects in scene
+  private axesHelper: THREE.AxesHelper;
+
+  //implement for create objects in scene
   createObjects(): void {
     this.axesHelper = new THREE.AxesHelper( 200 );
     this.scene.add( this.axesHelper );
+    this.camera.lookAt(0,0,0);
   }
 
   //implement for render animation of objects
   renderObjects() {
-    //this.axesHelper.rotateX(0.01);
-    //this.axesHelper.rotateY(0.001);
-    //this.axesHelper.rotateZ(0.005);
-
-    //this.camera.lookAt(this.axesHelper.position);
+    this.axesHelper.rotateX(0.01);
+    this.axesHelper.rotateY(0.001);
+    this.axesHelper.rotateZ(0.005);
   }
 
-...
+  ...
 
 }
-´´´
+```
+
+And finally, you have to inject the new created service to your component.
+Like this:
+
+```
+export class MyComponent extends App3dThreeTemplateComponent {
+
+  constructor(private engServ1: MyService) {
+      super(engServ1);
+  }
+
+}
+```
+
+And the html looks like this:
+
+```
+<canvas #rendererCanvas id="renderCanvas"></canvas>
+```
 
 ## Three Links
 
 * Three Extensions: https://github.com/Itee/three-full
 * Three-Full Types: https://discourse.threejs.org/t/angular-threejs/2739/7
 
-## Development server
+## Demo Example
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This intro is done with this three.js and angular component.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://davidmartinezros.com

@@ -1,24 +1,119 @@
-# App3dThreeTemplate
+# app-3d-three-template
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and is designed as a basic template for [ThreeJS](https://threejs.org/) combined with [Angular](https://angular.io/).
 
-## Code scaffolding
+The project is setup to use global [SCSS](https://sass-lang.com/) only and [ViewEncapsulation.None](https://angular.io/api/core/ViewEncapsulation).
 
-Run `ng generate component component-name --project App3dThreeTemplate` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project App3dThreeTemplate`.
-> Note: Don't forget to add `--project App3dThreeTemplate` or else it will be added to the default project in your `angular.json` file. 
+You can find me at https://davidmartinezros.com or contact in the email davidnezan@gmail.com
 
-## Build
+## how to do to create a three.js project
 
-Run `ng build App3dThreeTemplate` to build the project. The build artifacts will be stored in the `dist/` directory.
+You have to import the three.js library to your project.
 
-## Publishing
+```
+npm i three --save
+```
 
-After building your library with `ng build App3dThreeTemplate`, go to the dist folder `cd dist/app3d-three-template` and run `npm publish`.
+Add the three.js file to your project in the angular.json file.
 
-## Running unit tests
+```
+"scripts": [
+  "node_modules/three/build/three.min.js"
+],
+```
 
-Run `ng test App3dThreeTemplate` to execute the unit tests via [Karma](https://karma-runner.github.io).
+And add the webgl2 type to your tsconfig.app.json file or to tsconfig.json file.
 
-## Further help
+```
+"compilerOptions": {
+  "outDir": "../out-tsc/app",
+  "types": [
+    "node",
+    "webgl2"
+  ]
+},
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# how to use
+
+You can use it as a component in your project adding the <app-3d-three-template></app-3d-three-template> tag where you want and add the component App3dThreeTemplateComponent and the provider EngineApp3dThreeTemplateService to the module.
+
+Like this:
+
+```
+@NgModule({
+  declarations: [
+    MyComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [
+    MyService
+  ],
+  bootstrap: [
+    MyComponent
+  ]
+})
+export class AppModule { }
+```
+
+Then, you can reimplemented extending the service EngineApp3dThreeTemplateService and implementing the methods createObjects() and renderObjects().
+
+Like this:
+
+```
+export class MyService extends EngineApp3dThreeTemplateService {
+
+  ...
+
+  private axesHelper: THREE.AxesHelper;
+
+  //implement for create objects in scene
+  createObjects(): void {
+    this.axesHelper = new THREE.AxesHelper( 200 );
+    this.scene.add( this.axesHelper );
+    this.camera.lookAt(0,0,0);
+  }
+
+  //implement for render animation of objects
+  renderObjects() {
+    this.axesHelper.rotateX(0.01);
+    this.axesHelper.rotateY(0.001);
+    this.axesHelper.rotateZ(0.005);
+  }
+
+  ...
+
+}
+```
+
+And finally, you have to inject the new created service to your component.
+Like this:
+
+```
+export class MyComponent extends App3dThreeTemplateComponent {
+
+  constructor(private engServ1: MyService) {
+      super(engServ1);
+  }
+
+}
+```
+
+And the html looks like this:
+
+```
+<canvas #rendererCanvas id="renderCanvas"></canvas>
+```
+
+## Three Links
+
+* Three Extensions: https://github.com/Itee/three-full
+* Three-Full Types: https://discourse.threejs.org/t/angular-threejs/2739/7
+
+## Demo Example
+
+This intro is done with this three.js and angular component.
+
+https://davidmartinezros.com

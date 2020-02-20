@@ -1,6 +1,29 @@
 {
   "name": "app3d-three-template",
-  "version": "0.0.1",
+  "version": "0.0.14",
+  "license": "MIT",
+  "description": "An easy implementation of a 3d scene with Three.js and Angular, where you can add objects to scene easily.",
+  "author": "David Martínez Ros",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidmartinezros/app-3d-three-template"
+  },
+  "bugs": {
+    "url": "https://github.com/davidmartinezros/app-3d-three-template/issues"
+  },
+  "keywords": [
+    "angular",
+    "javascript",
+    "typescript",
+    "template",
+    "three.js",
+    "three",
+    "3d",
+    "component",
+    "scene",
+    "app-3d-three-template",
+    "app3d-three-template"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
