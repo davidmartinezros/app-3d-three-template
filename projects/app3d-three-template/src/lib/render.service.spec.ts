@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { MyRenderService } from './my-service.service';
+import { RenderService } from './render.service';
 
 
-describe('MyRenderService', () => {
+describe('RenderService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: MyRenderService = TestBed.get(MyRenderService);
+    const service: RenderService = TestBed.get(RenderService);
     expect(service).toBeTruthy();
   });
 });

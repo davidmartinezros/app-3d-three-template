@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { EngineApp3dThreeTemplateService } from './app3d-three-template.service';
 
 describe('App3dThreeTemplateService', () => {

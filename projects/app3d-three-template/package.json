@@ -1,6 +1,6 @@
 {
   "name": "app3d-three-template",
-  "version": "0.0.14",
+  "version": "0.0.18",
   "license": "MIT",
   "description": "An easy implementation of a 3d scene with Three.js and Angular, where you can add objects to scene easily.",
   "author": "David Martínez Ros",

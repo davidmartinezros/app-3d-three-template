@@ -1,22 +1,23 @@
 import * as THREE from 'three';
 import { Injectable, ElementRef, OnDestroy, NgZone } from '@angular/core';
+import { RenderService } from './render.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export abstract class EngineApp3dThreeTemplateService implements OnDestroy {
+export class EngineApp3dThreeTemplateService implements OnDestroy {
 
-  protected canvas: HTMLCanvasElement;
-  protected renderer: THREE.WebGLRenderer;
-  protected camera: THREE.PerspectiveCamera;
-  protected scene: THREE.Scene;
-  protected light: THREE.AmbientLight;
-
-  //private axesHelper: THREE.AxesHelper;
+  private canvas: HTMLCanvasElement;
+  private renderer: THREE.WebGLRenderer;
+  private camera: THREE.PerspectiveCamera;
+  private scene: THREE.Scene;
+  private light: THREE.AmbientLight;
 
   private frameId: number = null;
 
-  public constructor(private ngZone: NgZone) {}
+  public constructor(
+    private ngZone: NgZone,
+    private renderService: RenderService) {}
 
   public ngOnDestroy() {
     if (this.frameId != null) {
@@ -48,24 +49,17 @@ export abstract class EngineApp3dThreeTemplateService implements OnDestroy {
 
   }
   
-  //implement for create objects in scene
-  abstract createObjects();
-  //{
-  //this.axesHelper = new THREE.AxesHelper( 200 );
-  //this.scene.add( this.axesHelper );
-
-  //this.camera.lookAt(0,0,0);
-  //}
-
-  //implement for render animation of objects
-  abstract renderObjects();
-  //{
-  //this.axesHelper.rotateX(0.01);
-  //this.axesHelper.rotateY(0.001);
-  //this.axesHelper.rotateZ(0.005);
-
-  //this.camera.lookAt(this.axesHelper.position);
-  //}
+  createObjects() {
+    if(this.renderService) {
+      this.renderService.createObjects(this.scene, this.camera, this.light);
+    }
+  }
+  
+  renderObjects() {
+    if(this.renderService) {
+      this.renderService.renderObjects(this.scene, this.camera, this.light);
+    }
+  }
 
   render() {
     this.frameId = requestAnimationFrame(() => {

@@ -1,8 +1,6 @@
-# app-3d-three-template
+## use three.js in a easy way with app3d-three-template
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and is designed as a basic template for [ThreeJS](https://threejs.org/) combined with [Angular](https://angular.io/).
-
-The project is setup to use global [SCSS](https://sass-lang.com/) only and [ViewEncapsulation.None](https://angular.io/api/core/ViewEncapsulation).
 
 You can find me at https://davidmartinezros.com or contact in the email davidnezan@gmail.com
 
@@ -12,6 +10,8 @@ You have to import the three.js library to your project.
 
 ```
 npm i three --save
+npm i @types/webgl2 --save
+npm i @types/offscreencanvas --save
 ```
 
 Add the three.js file to your project in the angular.json file.
@@ -22,7 +22,7 @@ Add the three.js file to your project in the angular.json file.
 ],
 ```
 
-And add the webgl2 type to your tsconfig.app.json file or to tsconfig.json file.
+And adding webgl2 and offscreencanvas as types in your tsconfig.app.json file or tsconfig.json file.
 
 ```
 "compilerOptions": {
@@ -30,90 +30,76 @@ And add the webgl2 type to your tsconfig.app.json file or to tsconfig.json file.
   "types": [
     "node",
     "webgl2"
+    "offscreencanvas"
   ]
 },
 ```
 
-# how to use
+# how to use this component
 
-You can use it as a component in your project adding the <app-3d-three-template></app-3d-three-template> tag where you want and add the component App3dThreeTemplateComponent and the provider EngineApp3dThreeTemplateService to the module.
+You can use it as a component in your project adding the <app3d-three-template></app3d-three-template> tag where you want and add the module App3dThreeTemplateModule and defining your provider MyRenderService extending the abstract service RenderService.
 
 Like this:
 
 ```
 @NgModule({
   declarations: [
-    MyComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    App3dThreeTemplateModule
   ],
   providers: [
-    MyService
+    { provide: RenderService, useClass: MyRenderService }
   ],
   bootstrap: [
-    MyComponent
+    AppComponent
   ]
 })
 export class AppModule { }
 ```
 
-Then, you can reimplemented extending the service EngineApp3dThreeTemplateService and implementing the methods createObjects() and renderObjects().
+Then, you can reimplement extending the abstract service RenderService and implementing the methods createObjects() and renderObjects().
 
 Like this:
 
 ```
-export class MyService extends EngineApp3dThreeTemplateService {
+import * as THREE from 'three';
+import { Injectable } from '@angular/core';
+import { RenderService } from './render.service';
 
-  ...
+@Injectable({
+  providedIn: 'root'
+})
+export class MyRenderService implements RenderService {
 
-  private axesHelper: THREE.AxesHelper;
+    private axesHelper: THREE.AxesHelper;
+    
+    //implement for create objects in scene
+    createObjects(scene: THREE.Scene, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight) {
+        this.axesHelper = new THREE.AxesHelper( 200 );
+        scene.add( this.axesHelper );
+    
+        camera.lookAt(0,0,0);
+    }
 
-  //implement for create objects in scene
-  createObjects(): void {
-    this.axesHelper = new THREE.AxesHelper( 200 );
-    this.scene.add( this.axesHelper );
-    this.camera.lookAt(0,0,0);
-  }
-
-  //implement for render animation of objects
-  renderObjects() {
-    this.axesHelper.rotateX(0.01);
-    this.axesHelper.rotateY(0.001);
-    this.axesHelper.rotateZ(0.005);
-  }
-
-  ...
-
-}
-```
-
-And finally, you have to inject the new created service to your component.
-Like this:
-
-```
-export class MyComponent extends App3dThreeTemplateComponent {
-
-  constructor(private engServ1: MyService) {
-      super(engServ1);
-  }
+    //implement for render animation of objects
+    renderObjects(scene: THREE.Scene, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight) {
+      this.axesHelper.rotateX(0.01);
+    }
 
 }
 ```
 
-And the html looks like this:
+And the html of the AppComponent looks like this:
 
 ```
-<canvas #rendererCanvas id="renderCanvas"></canvas>
+<app3d-three-template></app3d-three-template>
 ```
-
-## Three Links
-
-* Three Extensions: https://github.com/Itee/three-full
-* Three-Full Types: https://discourse.threejs.org/t/angular-threejs/2739/7
 
 ## Demo Example
 
-This intro is done with this three.js and angular component.
+This intro is done with this three.js and the component app3d-three-template.
 
 https://davidmartinezros.com

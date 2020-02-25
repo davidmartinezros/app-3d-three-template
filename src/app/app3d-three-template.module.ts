@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { App3dThreeTemplateComponent } from './app3d-three-template.component';
-import { MyService } from './my-service';
-import { MyComponent } from './my-component';
+import { MyRenderService } from './my-render.service';
+import { RenderService } from './render.service';
 
 @NgModule({
   declarations: [
-    App3dThreeTemplateComponent,
-    MyComponent
+    App3dThreeTemplateComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [
-    MyService
+    { provide: RenderService, useClass: MyRenderService }
   ],
   bootstrap: [
-    MyComponent
+    App3dThreeTemplateComponent
   ]
 })
-export class AppModule { }
+export class App3dThreeTemplateModule { }
