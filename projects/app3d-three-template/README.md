@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 You can find me at https://davidmartinezros.com or contact in the email davidnezan@gmail.com
 
+## demo plunker using the component
+
+https://next.plnkr.co/edit/B1IDXBOaY8OvFYQI?preview
+
 ## how to create a three.js project
 
 You have to import the three.js library to your project.
