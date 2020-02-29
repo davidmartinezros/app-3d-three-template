@@ -13,6 +13,7 @@ https://next.plnkr.co/edit/B1IDXBOaY8OvFYQI?preview
 You have to import the three.js types needed into your project.
 
 ```
+npm i three --save (is optional, only if you want a different version)
 npm i @types/webgl2 --save
 npm i @types/offscreencanvas --save
 ```
