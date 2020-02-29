@@ -10,15 +10,14 @@ https://next.plnkr.co/edit/B1IDXBOaY8OvFYQI?preview
 
 ## how to create a three.js project
 
-You have to import the three.js library to your project.
+You have to import the three.js types needed into your project.
 
 ```
-npm i three --save
 npm i @types/webgl2 --save
 npm i @types/offscreencanvas --save
 ```
 
-Add the three.js file to your project in the angular.json file.
+Add the three.js file to your project in the angular.json file, which is loaded by the component as a peerDependency.
 
 ```
 "scripts": [
@@ -26,13 +25,11 @@ Add the three.js file to your project in the angular.json file.
 ],
 ```
 
-And adding webgl2 and offscreencanvas as types in your tsconfig.app.json file or tsconfig.json file.
+Add webgl2 and offscreencanvas as types in your tsconfig.app.json file or tsconfig.json file, for recognize them.
 
 ```
 "compilerOptions": {
-  "outDir": "../out-tsc/app",
   "types": [
-    "node",
     "webgl2"
     "offscreencanvas"
   ]
@@ -101,7 +98,7 @@ export class MyRenderService implements RenderService {
 }
 ```
 
-And the html of the AppComponent looks like this:
+Call the component into the html of the AppComponent:
 
 ```
 <app3d-three-template></app3d-three-template>
