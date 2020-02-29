@@ -1,6 +1,6 @@
 {
   "name": "app3d-three-template",
-  "version": "0.0.28",
+  "version": "0.0.35",
   "license": "MIT",
   "description": "An easy implementation of a 3d scene with Three.js and Angular, where you can add and move objects easily in the scene.",
   "author": "David Martínez Ros",
@@ -31,6 +31,17 @@
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
     "rxjs": "^6.5.4",
-    "three": "^0.110.0"
-  }
+    "three": "0.110.0",
+    "@types/webgl2": "0.0.5",
+    "@types/offscreencanvas": "2019.6.1"
+  },
+  "dependencies": {
+    "tslib": "^1.9.0"
+  },
+  "bundledDependencies": [
+    "rxjs",
+    "three",
+    "@types/webgl2",
+    "@types/offscreencanvas"
+  ]
 }
