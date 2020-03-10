@@ -51,13 +51,13 @@ export class EngineApp3dThreeTemplateService implements OnDestroy {
   
   createObjects() {
     if(this.renderService) {
-      this.renderService.createObjects(this.scene, this.camera, this.light);
+      this.renderService.createObjects(this.scene, this.renderer, this.camera, this.light);
     }
   }
   
   renderObjects() {
     if(this.renderService) {
-      this.renderService.renderObjects(this.scene, this.camera, this.light);
+      this.renderService.renderObjects(this.scene, this.renderer, this.camera, this.light);
     }
   }
 

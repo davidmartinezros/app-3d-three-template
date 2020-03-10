@@ -10,7 +10,7 @@ export class MyRenderService implements RenderService {
     private axesHelper: THREE.AxesHelper;
     
     //implement for create objects in scene
-    createObjects(scene: THREE.Scene, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight) {
+    createObjects(scene: THREE.Scene, renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight) {
         this.axesHelper = new THREE.AxesHelper( 200 );
         scene.add( this.axesHelper );
     
@@ -18,7 +18,7 @@ export class MyRenderService implements RenderService {
     }
 
     //implement for render animation of objects
-    renderObjects(scene: THREE.Scene, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight) {
+    renderObjects(scene: THREE.Scene, renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight) {
       this.axesHelper.rotateX(0.01);
     }
 

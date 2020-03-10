@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export abstract class RenderService {
   //implement for create objects in scene
-  abstract createObjects(scene: THREE.Scene, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight);
+  abstract createObjects(scene: THREE.Scene, renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight);
   //{
   //this.axesHelper = new THREE.AxesHelper( 200 );
   //this.scene.add( this.axesHelper );
@@ -14,7 +14,7 @@ export abstract class RenderService {
   //}
 
   //implement for render animation of objects
-  abstract renderObjects(scene: THREE.Scene, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight);
+  abstract renderObjects(scene: THREE.Scene, renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera, light: THREE.AmbientLight);
   //{
   //this.axesHelper.rotateX(0.01);
   //this.axesHelper.rotateY(0.001);
