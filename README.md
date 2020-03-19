@@ -1,8 +1,16 @@
+# DESCRIPTION
+
+The component makes it easy the work to representing 3D scenes in the browser with the Three.js library.
+
 ## use three.js in an easy way with app3d-three-template
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and is designed as a basic template for [ThreeJS](https://threejs.org/) combined with [Angular](https://angular.io/).
 
 You can find me at https://davidmartinezros.com or contact in the email davidnezan@gmail.com
+
+## youtube video
+
+https://youtu.be/Hz9Wz00X554
 
 ## demo plunker using the component
 
