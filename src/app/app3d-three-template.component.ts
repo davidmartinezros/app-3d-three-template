@@ -1,9 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { EngineApp3dThreeTemplateService } from './engine-app3d-three-template.service';
 
 @Component({
   selector: 'app3d-three-template',
   templateUrl: './app3d-three-template.component.html',
+  styleUrls: ['./app3d-three-template.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class App3dThreeTemplateComponent implements OnInit {
 

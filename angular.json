@@ -26,9 +26,7 @@
               "src/assets",
               "src/favicon.ico"
             ],
-            "styles": [
-              "src/styles/styles.scss"
-            ],
+            "styles": [ ],
             "scripts": [
               "node_modules/three/build/three.min.js"
             ],
