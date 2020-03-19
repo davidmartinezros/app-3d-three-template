@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { EngineApp3dThreeTemplateService } from './app3d-three-template.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { EngineApp3dThreeTemplateService } from './app3d-three-template.service'
       <canvas #rendererCanvas id="renderCanvas"></canvas>
     </div>
   `,
-  styles: []
+  styleUrls: ['./app3d-three-template.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class App3dThreeTemplateComponent implements OnInit {
 
