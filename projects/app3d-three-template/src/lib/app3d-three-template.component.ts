@@ -4,7 +4,9 @@ import { EngineApp3dThreeTemplateService } from './app3d-three-template.service'
 @Component({
   selector: 'app3d-three-template',
   template: `
-    <canvas #rendererCanvas id="renderCanvas"></canvas>
+    <div class="engine-wrapper">
+      <canvas #rendererCanvas id="renderCanvas"></canvas>
+    </div>
   `,
   styles: []
 })
