@@ -23,20 +23,22 @@ if (false) {
      * @abstract
      * @param {?} scene
      * @param {?} renderer
+     * @param {?} canvas
      * @param {?} camera
      * @param {?} light
      * @return {?}
      */
-    RenderService.prototype.createObjects = function (scene, renderer, camera, light) { };
+    RenderService.prototype.createObjects = function (scene, renderer, canvas, camera, light) { };
     /**
      * @abstract
      * @param {?} scene
      * @param {?} renderer
+     * @param {?} canvas
      * @param {?} camera
      * @param {?} light
      * @return {?}
      */
-    RenderService.prototype.renderObjects = function (scene, renderer, camera, light) { };
+    RenderService.prototype.renderObjects = function (scene, renderer, canvas, camera, light) { };
 }
 
 /**
@@ -87,7 +89,7 @@ class EngineApp3dThreeTemplateService {
      */
     createObjects() {
         if (this.renderService) {
-            this.renderService.createObjects(this.scene, this.renderer, this.camera, this.light);
+            this.renderService.createObjects(this.scene, this.renderer, this.canvas, this.camera, this.light);
         }
     }
     /**
@@ -95,7 +97,7 @@ class EngineApp3dThreeTemplateService {
      */
     renderObjects() {
         if (this.renderService) {
-            this.renderService.renderObjects(this.scene, this.renderer, this.camera, this.light);
+            this.renderService.renderObjects(this.scene, this.renderer, this.canvas, this.camera, this.light);
         }
     }
     /**
@@ -264,11 +266,12 @@ class MyRenderService {
     /**
      * @param {?} scene
      * @param {?} renderer
+     * @param {?} canvas
      * @param {?} camera
      * @param {?} light
      * @return {?}
      */
-    createObjects(scene, renderer, camera, light) {
+    createObjects(scene, renderer, canvas, camera, light) {
         this.axesHelper = new AxesHelper(200);
         scene.add(this.axesHelper);
         camera.lookAt(0, 0, 0);
@@ -277,11 +280,12 @@ class MyRenderService {
     /**
      * @param {?} scene
      * @param {?} renderer
+     * @param {?} canvas
      * @param {?} camera
      * @param {?} light
      * @return {?}
      */
-    renderObjects(scene, renderer, camera, light) {
+    renderObjects(scene, renderer, canvas, camera, light) {
         this.axesHelper.rotateX(0.01);
     }
 }

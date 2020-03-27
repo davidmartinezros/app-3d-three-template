@@ -12,9 +12,9 @@ You can find me at https://davidmartinezros.com or contact in the email davidnez
 
 https://youtu.be/Hz9Wz00X554
 
-## demo plunker using the component
+## demo using the component
 
-https://next.plnkr.co/edit/bdkshJFzhwmLNdgO?preview
+https://davidmartinezros.github.io/3dThreeTemplateDemo/
 
 ## how to create a three.js project
 
