@@ -62,7 +62,7 @@ var MyRenderService = /** @class */ (function () {
                     providedIn: 'root'
                 },] }
     ];
-    /** @nocollapse */ MyRenderService.ngInjectableDef = i0.defineInjectable({ factory: function MyRenderService_Factory() { return new MyRenderService(); }, token: MyRenderService, providedIn: "root" });
+    /** @nocollapse */ MyRenderService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function MyRenderService_Factory() { return new MyRenderService(); }, token: MyRenderService, providedIn: "root" });
     return MyRenderService;
 }());
 export { MyRenderService };

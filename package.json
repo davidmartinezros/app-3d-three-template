@@ -35,7 +35,9 @@
     "build:both": "npm run build && npm run build:prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-component": "ng build App3dThreeTemplate",
+    "publish-component": "cd dist/app3d-three-template && npm publish && cd .."
   },
   "private": true,
   "dependencies": {

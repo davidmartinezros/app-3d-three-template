@@ -16,7 +16,7 @@ var RenderService = /** @class */ (function () {
                     providedIn: 'root'
                 },] }
     ];
-    /** @nocollapse */ RenderService.ngInjectableDef = i0.defineInjectable({ factory: function RenderService_Factory() { return new RenderService(); }, token: RenderService, providedIn: "root" });
+    /** @nocollapse */ RenderService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RenderService_Factory() { return new RenderService(); }, token: RenderService, providedIn: "root" });
     return RenderService;
 }());
 export { RenderService };

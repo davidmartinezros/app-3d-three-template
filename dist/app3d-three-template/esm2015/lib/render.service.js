@@ -15,7 +15,7 @@ RenderService.decorators = [
                 providedIn: 'root'
             },] }
 ];
-/** @nocollapse */ RenderService.ngInjectableDef = i0.defineInjectable({ factory: function RenderService_Factory() { return new RenderService(); }, token: RenderService, providedIn: "root" });
+/** @nocollapse */ RenderService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function RenderService_Factory() { return new RenderService(); }, token: RenderService, providedIn: "root" });
 if (false) {
     /**
      * @abstract

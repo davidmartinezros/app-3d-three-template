@@ -49610,7 +49610,7 @@
 	                    providedIn: 'root'
 	                },] }
 	    ];
-	    /** @nocollapse */ RenderService.ngInjectableDef = core.defineInjectable({ factory: function RenderService_Factory() { return new RenderService(); }, token: RenderService, providedIn: "root" });
+	    /** @nocollapse */ RenderService.ngInjectableDef = core.ɵɵdefineInjectable({ factory: function RenderService_Factory() { return new RenderService(); }, token: RenderService, providedIn: "root" });
 	    return RenderService;
 	}());
 	if (false) {
@@ -49777,7 +49777,7 @@
 	        { type: core.NgZone },
 	        { type: RenderService }
 	    ]; };
-	    /** @nocollapse */ EngineApp3dThreeTemplateService.ngInjectableDef = core.defineInjectable({ factory: function EngineApp3dThreeTemplateService_Factory() { return new EngineApp3dThreeTemplateService(core.inject(core.NgZone), core.inject(RenderService)); }, token: EngineApp3dThreeTemplateService, providedIn: "root" });
+	    /** @nocollapse */ EngineApp3dThreeTemplateService.ngInjectableDef = core.ɵɵdefineInjectable({ factory: function EngineApp3dThreeTemplateService_Factory() { return new EngineApp3dThreeTemplateService(core.ɵɵinject(core.NgZone), core.ɵɵinject(RenderService)); }, token: EngineApp3dThreeTemplateService, providedIn: "root" });
 	    return EngineApp3dThreeTemplateService;
 	}());
 	if (false) {
@@ -49930,7 +49930,7 @@
 	                    providedIn: 'root'
 	                },] }
 	    ];
-	    /** @nocollapse */ MyRenderService.ngInjectableDef = core.defineInjectable({ factory: function MyRenderService_Factory() { return new MyRenderService(); }, token: MyRenderService, providedIn: "root" });
+	    /** @nocollapse */ MyRenderService.ngInjectableDef = core.ɵɵdefineInjectable({ factory: function MyRenderService_Factory() { return new MyRenderService(); }, token: MyRenderService, providedIn: "root" });
 	    return MyRenderService;
 	}());
 	if (false) {
