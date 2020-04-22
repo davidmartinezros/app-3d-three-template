@@ -18,7 +18,7 @@ https://davidmartinezros.github.io/3dThreeTemplateDemo/
 
 ## how to create a three.js project
 
-You can import the three.js library and types needed into your project (**are OPTIONAL**, only if you want a different version).
+You have to import the three.js library and types needed into your project.
 
 ```
 npm i three --save
@@ -26,7 +26,7 @@ npm i @types/webgl2 --save
 npm i @types/offscreencanvas --save
 ```
 
-Add the three.js file to your project in the angular.json file, which **is LOADED** by the component as a **dependency**.
+Add the three.js file to your project in the angular.json file.
 
 ```
 "scripts": [
