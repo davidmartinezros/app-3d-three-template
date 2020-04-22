@@ -144,7 +144,7 @@ var EngineApp3dThreeTemplateService = /** @class */ (function () {
         { type: NgZone },
         { type: RenderService }
     ]; };
-    /** @nocollapse */ EngineApp3dThreeTemplateService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function EngineApp3dThreeTemplateService_Factory() { return new EngineApp3dThreeTemplateService(i0.ɵɵinject(i0.NgZone), i0.ɵɵinject(i1.RenderService)); }, token: EngineApp3dThreeTemplateService, providedIn: "root" });
+    /** @nocollapse */ EngineApp3dThreeTemplateService.ngInjectableDef = i0.defineInjectable({ factory: function EngineApp3dThreeTemplateService_Factory() { return new EngineApp3dThreeTemplateService(i0.inject(i0.NgZone), i0.inject(i1.RenderService)); }, token: EngineApp3dThreeTemplateService, providedIn: "root" });
     return EngineApp3dThreeTemplateService;
 }());
 export { EngineApp3dThreeTemplateService };

@@ -1,5 +1,5 @@
 import { WebGLRenderer, Scene, PerspectiveCamera, AmbientLight, AxesHelper } from 'three';
-import { Injectable, ɵɵdefineInjectable, NgZone, ɵɵinject, Component, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
+import { Injectable, defineInjectable, NgZone, inject, Component, ViewEncapsulation, ViewChild, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /**
@@ -17,7 +17,7 @@ RenderService.decorators = [
                 providedIn: 'root'
             },] }
 ];
-/** @nocollapse */ RenderService.ngInjectableDef = ɵɵdefineInjectable({ factory: function RenderService_Factory() { return new RenderService(); }, token: RenderService, providedIn: "root" });
+/** @nocollapse */ RenderService.ngInjectableDef = defineInjectable({ factory: function RenderService_Factory() { return new RenderService(); }, token: RenderService, providedIn: "root" });
 if (false) {
     /**
      * @abstract
@@ -163,7 +163,7 @@ EngineApp3dThreeTemplateService.ctorParameters = () => [
     { type: NgZone },
     { type: RenderService }
 ];
-/** @nocollapse */ EngineApp3dThreeTemplateService.ngInjectableDef = ɵɵdefineInjectable({ factory: function EngineApp3dThreeTemplateService_Factory() { return new EngineApp3dThreeTemplateService(ɵɵinject(NgZone), ɵɵinject(RenderService)); }, token: EngineApp3dThreeTemplateService, providedIn: "root" });
+/** @nocollapse */ EngineApp3dThreeTemplateService.ngInjectableDef = defineInjectable({ factory: function EngineApp3dThreeTemplateService_Factory() { return new EngineApp3dThreeTemplateService(inject(NgZone), inject(RenderService)); }, token: EngineApp3dThreeTemplateService, providedIn: "root" });
 if (false) {
     /**
      * @type {?}
@@ -294,7 +294,7 @@ MyRenderService.decorators = [
                 providedIn: 'root'
             },] }
 ];
-/** @nocollapse */ MyRenderService.ngInjectableDef = ɵɵdefineInjectable({ factory: function MyRenderService_Factory() { return new MyRenderService(); }, token: MyRenderService, providedIn: "root" });
+/** @nocollapse */ MyRenderService.ngInjectableDef = defineInjectable({ factory: function MyRenderService_Factory() { return new MyRenderService(); }, token: MyRenderService, providedIn: "root" });
 if (false) {
     /**
      * @type {?}
